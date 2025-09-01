@@ -11,6 +11,8 @@ Um colectathon sobre um professor de química e sua grande apresentação.
 Colete todos os elementos químicos.
 
 ### 📷 Screenshots  
+<img width="711" height="522" alt="image" src="https://github.com/user-attachments/assets/c01640e7-2520-42f6-aec3-04207019c428" />
+<img width="738" height="428" alt="image" src="https://github.com/user-attachments/assets/50d9cba7-b3cf-4dc8-98f8-304d65fdf4ec" />
 
 ---
 
