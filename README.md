@@ -50,20 +50,8 @@ Made with love by
 
 // github.com/forgeworksdev
 
-//         :XXXXo;'                .;lXXXXl         
-//         cNX....                  ....KNo         
-//         ,do                          ld;         
-//         ...    .cccccc:  ;cccccc.    ...         
-//                ,NNxx0N0  kNKxxNN:                
-//                'KK. cKk  xKo  KK;                
-//                .::  .:;  ,:'  ::.                
-//              ,::::  .::::::'  ::::;              
-//                                                  
-//              cxc  ',. .xx. .,,  :xo              
-//         .'.  ,:,  ...  ::.  ..  ':;  .'.         
-//         ,xd                          lx;         
-//         cNX''..                  ..''KNo         
-//         :KKKKl;'                .;cKKKKc      
+<img width="210" height="200" alt="PFP_ForgeWorks_10x" src="https://github.com/user-attachments/assets/33a502ce-811c-4cbd-ab1e-de9681677f5b" />
+
 
 // ForgeWorks
 // In engineering I trust.
