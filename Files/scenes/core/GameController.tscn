@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://buw8wsgko5mj0"]
+
+[ext_resource type="Script" uid="uid://devcegbak36a0" path="res://Files/scenes/core/Main.gd" id="1_jxk57"]
+[ext_resource type="Script" uid="uid://bnrstmxp274y4" path="res://Files/scenes/GUI/GUI_script.gd" id="3_jxk57"]
+
+[node name="GameController" type="Node" node_paths=PackedStringArray("world_3d", "gui")]
+script = ExtResource("1_jxk57")
+world_3d = NodePath("World3D")
+gui = NodePath("GUI")
+metadata/_custom_type_script = "uid://ioei37fq6kc7"
+
+[node name="World3D" type="Node3D" parent="."]
+
+[node name="GUI" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_jxk57")

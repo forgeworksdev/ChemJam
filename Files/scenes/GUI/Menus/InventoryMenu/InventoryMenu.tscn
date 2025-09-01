@@ -1,0 +1,79 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5egqc2yojujo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yh2hf"]
+bg_color = Color(0.5135904, 0.39060783, 0.23531568, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8cnhh"]
+bg_color = Color(0.28154278, 0.27123284, 0.9820543, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l5mri"]
+bg_color = Color(0.71091616, 0.559139, 0.36595324, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mows0"]
+bg_color = Color(0.68162394, 0.25668326, 0.23589194, 1)
+
+[node name="InventoryMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.000004
+offset_top = 64.00001
+offset_right = 40.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2098885, 0.2098885)
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 448.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yh2hf")
+
+[node name="Panel2" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 128.0
+offset_bottom = 448.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yh2hf")
+
+[node name="Panel3" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 192.0
+offset_right = 768.0
+offset_bottom = 448.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8cnhh")
+
+[node name="Panel7" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 512.0
+offset_right = 832.0
+offset_bottom = 640.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_l5mri")
+
+[node name="Panel4" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = 768.0
+offset_top = 64.0
+offset_right = 1152.0
+offset_bottom = 448.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mows0")
+
+[node name="Panel5" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = 1088.0
+offset_right = 1152.0
+offset_bottom = 64.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yh2hf")

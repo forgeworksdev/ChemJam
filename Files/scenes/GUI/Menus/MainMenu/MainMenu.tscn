@@ -1,0 +1,252 @@
+[gd_scene load_steps=20 format=3 uid="uid://bapx7jlkv77do"]
+
+[ext_resource type="Script" uid="uid://byrh0601o7mgn" path="res://Files/scenes/GUI/Menus/MainMenu/MainMenu_script.gd" id="1_llgvn"]
+[ext_resource type="Environment" uid="uid://c8534rpyf5px8" path="res://Files/resources/environments/World3D_dark.tres" id="1_vg272"]
+[ext_resource type="Material" uid="uid://cttdq8ojgydk2" path="res://Files/Materials/DarkTiles.tres" id="2_llgvn"]
+[ext_resource type="Texture2D" uid="uid://btoftcbw71cs" path="res://kenney_prototype_textures/green/texture_01.png" id="3_8hy4k"]
+[ext_resource type="Texture2D" uid="uid://c7abp24f8bvhx" path="res://kenney_prototype_textures/orange/texture_01.png" id="4_rvlxb"]
+[ext_resource type="Texture2D" uid="uid://dhtpqa8h3cx22" path="res://kenney_prototype_textures/red/texture_01.png" id="5_237mf"]
+[ext_resource type="Texture2D" uid="uid://tumfs3licb23" path="res://kenney_prototype_textures/purple/texture_01.png" id="6_am8da"]
+[ext_resource type="Texture2D" uid="uid://d17l6h2aub488" path="res://kenney_prototype_textures/green/texture_10.png" id="7_k14qp"]
+[ext_resource type="Texture2D" uid="uid://pjbj1ualck76" path="res://kenney_prototype_textures/red/texture_10.png" id="8_68fq2"]
+[ext_resource type="Texture2D" uid="uid://dof8k3loikbkv" path="res://Logo/banner_trans.png" id="9_3bjyh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vo8kr"]
+albedo_texture = ExtResource("3_8hy4k")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l0612"]
+albedo_texture = ExtResource("4_rvlxb")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rc07c"]
+albedo_texture = ExtResource("5_237mf")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aqcra"]
+albedo_texture = ExtResource("6_am8da")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iq2rc"]
+albedo_texture = ExtResource("7_k14qp")
+uv1_triplanar = true
+
+[sub_resource type="GDScript" id="GDScript_eyuw5"]
+resource_name = "aaaaaaa"
+script/source = "extends RigidBody3D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+func interact(player: CharacterBody3D) -> void:
+	print(\"Interacted\")
+"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_slbdo"]
+albedo_texture = ExtResource("8_68fq2")
+
+[sub_resource type="BoxMesh" id="BoxMesh_gyku2"]
+material = SubResource("StandardMaterial3D_slbdo")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eyuw5"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_llgvn")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(320, 240)
+render_target_update_mode = 4
+
+[node name="World3D" type="Node3D" parent="SubViewportContainer/SubViewport"]
+
+[node name="env" type="Node" parent="SubViewportContainer/SubViewport/World3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport/World3D/env"]
+environment = ExtResource("1_vg272")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/World3D/env"]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 9.084428, 0)
+visible = false
+shadow_enabled = true
+directional_shadow_max_distance = 1.0
+
+[node name="Terrain" type="Node3D" parent="SubViewportContainer/SubViewport/World3D"]
+
+[node name="Walls" type="Node3D" parent="SubViewportContainer/SubViewport/World3D/Terrain"]
+
+[node name="Wall" type="StaticBody3D" parent="SubViewportContainer/SubViewport/World3D/Terrain/Walls"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="SubViewportContainer/SubViewport/World3D/Terrain/Walls/Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 2, 0)
+size = Vector3(0.1, 4, 64)
+material = ExtResource("2_llgvn")
+
+[node name="Wall3" type="StaticBody3D" parent="SubViewportContainer/SubViewport/World3D/Terrain/Walls"]
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="SubViewportContainer/SubViewport/World3D/Terrain/Walls/Wall3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 32)
+size = Vector3(64, 4, 0.1)
+material = ExtResource("2_llgvn")
+
+[node name="Wall4" type="StaticBody3D" parent="SubViewportContainer/SubViewport/World3D/Terrain/Walls"]
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="SubViewportContainer/SubViewport/World3D/Terrain/Walls/Wall4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -32)
+size = Vector3(64, 4, 0.1)
+material = ExtResource("2_llgvn")
+
+[node name="Floor" type="StaticBody3D" parent="SubViewportContainer/SubViewport/World3D/Terrain"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="SubViewportContainer/SubViewport/World3D/Terrain/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.049030304, 9.536743e-07, -0.008295059)
+size = Vector3(64, 0.1, 64)
+material = ExtResource("2_llgvn")
+
+[node name="Lights" type="Node3D" parent="SubViewportContainer/SubViewport/World3D/Terrain"]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/World3D/Terrain/Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 7.9743323, 0)
+light_energy = 8.191
+spot_range = 11.775309
+spot_angle_attenuation = 0.21764004
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="SubViewportContainer/SubViewport/World3D/Terrain/Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 16.401932, 7.9743323, 0)
+light_energy = 8.191
+spot_range = 11.775309
+spot_angle_attenuation = 0.27739567
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="SubViewportContainer/SubViewport/World3D/Terrain/Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -22.698603, 30.422985, 0)
+light_energy = 16.0
+spot_range = 60.73174
+spot_angle = 27.051228
+spot_angle_attenuation = 0.21764004
+
+[node name="ParkourCourse" type="Node3D" parent="SubViewportContainer/SubViewport/World3D/Terrain"]
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="SubViewportContainer/SubViewport/World3D/Terrain/ParkourCourse"]
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="SubViewportContainer/SubViewport/World3D/Terrain/ParkourCourse/StaticBody3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.79435, 0.55367184, -7.6804676)
+size = Vector3(2.5, 1, 2.5)
+material = SubResource("StandardMaterial3D_vo8kr")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="SubViewportContainer/SubViewport/World3D/Terrain/ParkourCourse"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="SubViewportContainer/SubViewport/World3D/Terrain/ParkourCourse/StaticBody3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.077993, 1.5536718, -0.9892026)
+size = Vector3(5, 3, 6)
+material = SubResource("StandardMaterial3D_l0612")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="SubViewportContainer/SubViewport/World3D/Terrain/ParkourCourse"]
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="SubViewportContainer/SubViewport/World3D/Terrain/ParkourCourse/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5, 1.75, 5)
+size = Vector3(5, 3.5, 5)
+material = SubResource("StandardMaterial3D_rc07c")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/World3D/Terrain/ParkourCourse"]
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="SubViewportContainer/SubViewport/World3D/Terrain/ParkourCourse/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.50913, 1.0536718, -5.9577007)
+size = Vector3(3, 2, 3.5)
+material = SubResource("StandardMaterial3D_aqcra")
+
+[node name="StaticBody3D5" type="StaticBody3D" parent="SubViewportContainer/SubViewport/World3D/Terrain/ParkourCourse"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 1.6, -12)
+metadata/_edit_group_ = true
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="SubViewportContainer/SubViewport/World3D/Terrain/ParkourCourse/StaticBody3D5"]
+size = Vector3(3, 0.5, 3.5)
+material = SubResource("StandardMaterial3D_iq2rc")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="SubViewportContainer/SubViewport/World3D/Terrain" groups=["CarriableItems", "InteractableObjects"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4, 0.554, 0)
+script = SubResource("GDScript_eyuw5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/World3D/Terrain/RigidBody3D"]
+mesh = SubResource("BoxMesh_gyku2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/World3D/Terrain/RigidBody3D"]
+shape = SubResource("BoxShape3D_eyuw5")
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/World3D"]
+transform = Transform3D(-4.222196e-08, -0.25881907, -0.9659258, -1.131334e-08, 0.9659259, -0.25881907, 1, 0, -4.371139e-08, -35.80941, 2.7392635, 0)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Credits" type="Button" parent="MarginContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "credits"
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VSplitContainer" type="HSplitContainer" parent="MarginContainer/CenterContainer"]
+layout_mode = 2
+dragging_enabled = false
+dragger_visibility = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/CenterContainer/VSplitContainer"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+texture = ExtResource("9_3bjyh")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer/VSplitContainer"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="MarginContainer/CenterContainer/VSplitContainer/VBoxContainer"]
+custom_minimum_size = Vector2(80, 25)
+layout_mode = 2
+text = "Play"
+
+[node name="Button2" type="Button" parent="MarginContainer/CenterContainer/VSplitContainer/VBoxContainer"]
+custom_minimum_size = Vector2(80, 25)
+layout_mode = 2
+text = "Options"
+
+[node name="Button3" type="Button" parent="MarginContainer/CenterContainer/VSplitContainer/VBoxContainer"]
+custom_minimum_size = Vector2(80, 25)
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="MarginContainer/CenterContainer/VSplitContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]

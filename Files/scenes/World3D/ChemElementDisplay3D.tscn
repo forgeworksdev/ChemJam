@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=3 uid="uid://cb4pr64i520u3"]
+
+[ext_resource type="Script" uid="uid://babv2s5mh0yur" path="res://Files/scenes/World3D/chemElementDisplay3D_script.gd" id="1_1pfx2"]
+[ext_resource type="PackedScene" uid="uid://ckt2bs8rn5xmr" path="res://Files/models/ChemElementDisplay3DModel.glb" id="1_a202f"]
+[ext_resource type="Script" uid="uid://crw0ft2tbo3kp" path="res://Files/Components/ChemElements/ChemElement_script.gd" id="2_vobbt"]
+
+[sub_resource type="Resource" id="Resource_mi2bm"]
+script = ExtResource("2_vobbt")
+name = "Huh"
+atomic_number = 69
+chem_symbol = ";w;"
+mass = 420
+description = "Help "
+metadata/_custom_type_script = "uid://crw0ft2tbo3kp"
+
+[sub_resource type="TextMesh" id="TextMesh_br10s"]
+text = "45"
+font_size = 8
+
+[sub_resource type="TextMesh" id="TextMesh_a202f"]
+text = "RH"
+font_size = 32
+
+[sub_resource type="TextMesh" id="TextMesh_yxkx6"]
+text = "Ródio"
+
+[sub_resource type="TextMesh" id="TextMesh_8nw2j"]
+text = "102,91"
+font_size = 8
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1pfx2"]
+size = Vector3(0.213, 1.08, 1.08)
+
+[node name="ChemElementDisplay3D" type="AnimatableBody3D" groups=["InteractableObjects"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+collision_layer = 2
+script = ExtResource("1_1pfx2")
+chem_element = SubResource("Resource_mi2bm")
+
+[node name="Mesh" type="Node3D" parent="."]
+transform = Transform3D(0.9659258, -0.25881904, 0, 0.25, 0.93301266, -0.258819, 0.066987306, 0.25000003, 0.9659259, 0.0009993298, 0.0008611018, -0.0008859637)
+
+[node name="ChemElementDisplayModel" parent="Mesh" instance=ExtResource("1_a202f")]
+transform = Transform3D(0.99771744, 0.009109288, 0.06690952, -0.008518547, 0.99992216, -0.009109274, -0.066987306, 0.008518533, 0.9977176, -0.00083713606, 0.00783244, 0.0038182882)
+
+[node name="AtomicNumberMesh" type="MeshInstance3D" parent="Mesh"]
+transform = Transform3D(-0.066909574, 0.009109288, 0.99771744, 0.009109271, 0.99992216, -0.008518562, -0.99771756, 0.008518533, -0.06698734, 0.059221007, 0.35731962, 0.0029814995)
+mesh = SubResource("TextMesh_br10s")
+skeleton = NodePath("../ChemElementDisplayModel")
+
+[node name="ChemSymbolMesh" type="MeshInstance3D" parent="Mesh"]
+transform = Transform3D(-0.066909574, 0.009109288, 0.99771744, 0.009109271, 0.99992216, -0.008518562, -0.99771756, 0.008518533, -0.06698734, 0.057299756, 0.12149126, 0.0009572005)
+mesh = SubResource("TextMesh_a202f")
+skeleton = NodePath("../ChemElementDisplayModel")
+
+[node name="NameMesh" type="MeshInstance3D" parent="Mesh"]
+transform = Transform3D(-0.066909574, 0.009109288, 0.99771744, 0.009109271, 0.99992216, -0.008518562, -0.99771756, 0.008518533, -0.06698734, 0.05472516, -0.16112047, -0.0014504233)
+mesh = SubResource("TextMesh_yxkx6")
+skeleton = NodePath("../ChemElementDisplayModel")
+
+[node name="MassMesh" type="MeshInstance3D" parent="Mesh"]
+transform = Transform3D(-0.066909574, 0.009109288, 0.99771744, 0.009109271, 0.99992216, -0.008518562, -0.99771756, 0.008518533, -0.06698734, 0.05284451, -0.34262583, -0.0029814846)
+mesh = SubResource("TextMesh_8nw2j")
+skeleton = NodePath("../ChemElementDisplayModel")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.9659258, -0.25, 0.06698729, 0.258819, 0.9330126, -0.25, -7.4505815e-09, 0.25881907, 0.9659287, -0.0018364659, 0.006971338, 0.0047042524)
+shape = SubResource("BoxShape3D_1pfx2")

@@ -1,0 +1,83 @@
+[gd_scene load_steps=9 format=3 uid="uid://ciqgdvtju0v1g"]
+
+[ext_resource type="Script" uid="uid://dqvikdiiudlir" path="res://Files/Components/Player/Player_script.gd" id="1_w6g7p"]
+[ext_resource type="Script" uid="uid://db26vu4e8cqtm" path="res://Files/Components/ItemCarry3DComp/ItemCarry3DComp_script.gd" id="2_2st3y"]
+[ext_resource type="Script" uid="uid://icq52g1msd1" path="res://Files/Components/Interaction3DComp/Interaction3DComp_script.gd" id="2_vutm0"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_q35ma"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w6g7p"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fuikp"]
+height = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fuikp"]
+no_depth_test = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_fuikp"]
+material = SubResource("StandardMaterial3D_fuikp")
+radius = 0.25
+height = 0.5
+radial_segments = 10
+rings = 8
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_w6g7p")
+mouse_sensitivity = 35.4
+
+[node name="Interaction3DComponent" type="Node" parent="."]
+script = ExtResource("2_vutm0")
+action_name = "interact"
+group_name = "InteractableObjects"
+metadata/_custom_type_script = "uid://icq52g1msd1"
+
+[node name="ItemCarry3DComp" type="Node" parent="." node_paths=PackedStringArray("raycast", "hand")]
+script = ExtResource("2_2st3y")
+enabled = true
+action_name = "interact"
+group_name = "CarriableItems"
+raycast = NodePath("../HeadPivot/Camera3D/InteractRayCast3D")
+hand = NodePath("../HeadPivot/Camera3D/Hand")
+DEFAULT_LAYER = 2
+metadata/_custom_type_script = "uid://db26vu4e8cqtm"
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 2, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.999995, -0.0031590406, 0, 0.0031590406, 0.999995, 0, 1, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_q35ma")
+
+[node name="StandingCollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_w6g7p")
+debug_color = Color(0.8352941, 0.14901961, 0, 1)
+
+[node name="CrouchingCollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_fuikp")
+debug_color = Color(2.887845e-06, 0.5075466, 0.6422146, 1)
+
+[node name="HeadPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+
+[node name="Camera3D" type="Camera3D" parent="HeadPivot"]
+
+[node name="FlashLight3D" type="SpotLight3D" parent="HeadPivot/Camera3D"]
+visible = false
+light_energy = 4.0
+spot_range = 4.167571
+spot_angle = 42.762157
+
+[node name="InteractRayCast3D" type="RayCast3D" parent="HeadPivot/Camera3D"]
+target_position = Vector3(0, 0, -4)
+collision_mask = 3
+
+[node name="Hand" type="Node3D" parent="HeadPivot/Camera3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.91183114, -0.54971004, -1.2485021)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="HeadPivot/Camera3D/Hand" groups=["InteractableObjects"]]
+mesh = SubResource("SphereMesh_fuikp")
