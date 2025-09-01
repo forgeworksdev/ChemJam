@@ -21,7 +21,7 @@ Colete todos os elementos químicos.
 ### 📥 Cloning the Repository  
 ```sh
 git clone https://github.com/Max9th/ChemJam.git
-cd Circuit_Breaker
+cd ChemJam
 ```
 
 ### 🎮 Running the Project in Godot  
