@@ -21,7 +21,7 @@ cd Circuit_Breaker
 ```
 
 ### 🎮 Running the Project in Godot  
-1. Open **Godot v4.5**  
+1. Open **Godot v4.5 dev6**  
 2. Click **Import Project**  
 3. Select the `project.godot` file in the repository  e 
 4. Click **Run**  
@@ -29,7 +29,7 @@ cd Circuit_Breaker
 ---
 
 ## 🛠️ Technologies Used  
-- 🖥️ **Godot v4.5** (Engine)  
+- 🖥️ **Godot v4.5 dev6** (Engine)  
 - 🎨 **GDScript** (Scripting)  
 - 📦 **Godot Pixelorama Importer addon (Fork by Daniel Chabrowski, original by Technohacker)**
 
@@ -48,6 +48,24 @@ cd Circuit_Breaker
 
 Made with love by 
 
-- ForgeWorks - Main developer, artist and programmer.
+// github.com/forgeworksdev
+
+//         :XXXXo;'                .;lXXXXl         
+//         cNX....                  ....KNo         
+//         ,do                          ld;         
+//         ...    .cccccc:  ;cccccc.    ...         
+//                ,NNxx0N0  kNKxxNN:                
+//                'KK. cKk  xKo  KK;                
+//                .::  .:;  ,:'  ::.                
+//              ,::::  .::::::'  ::::;              
+//                                                  
+//              cxc  ',. .xx. .,,  :xo              
+//         .'.  ,:,  ...  ::.  ..  ':;  .'.         
+//         ,xd                          lx;         
+//         cNX''..                  ..''KNo         
+//         :KKKKl;'                .;cKKKKc      
+
+// ForgeWorks
+// In engineering I trust.
 
 at the Federal Institute of Education, Science and Technology.
