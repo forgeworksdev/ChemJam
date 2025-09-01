@@ -1,7 +1,7 @@
 <img width="800" height="400" alt="banner_trans" src="https://github.com/user-attachments/assets/a884e6af-cb28-4b9f-8a48-258ec260fa06" />
 
 
-# 🎮 ChemJam 🎮
+# 🎮 ChemJAM! 🎮
 
 ## Warning: This game is still under development and is not in playable state. Expect daily commits by the dev team.
 
