@@ -6,7 +6,9 @@
 ## Warning: This game is still under development and is not in playable state. Expect daily commits by the dev team.
 
 ### 🏗️ Description  
-Um colectathon sobre um professor e sua grande apresentação.
+Um colectathon sobre um professor de química e sua grande apresentação.
+
+Colete todos os elementos químicos.
 
 ### 📷 Screenshots  
 
@@ -52,8 +54,8 @@ Made with love by
 
 <img width="210" height="200" alt="PFP_ForgeWorks_10x" src="https://github.com/user-attachments/assets/33a502ce-811c-4cbd-ab1e-de9681677f5b" />
 
-
 // ForgeWorks
+
 // In engineering I trust.
 
 at the Federal Institute of Education, Science and Technology.
